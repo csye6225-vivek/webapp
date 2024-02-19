@@ -42,7 +42,7 @@ public class UserControllerIntegrationTests {
         mockMvc.perform(get("/v1/user/self")
                         .header("Authorization", "Basic " + Base64Utils.encodeToString("test14@example.com:password".getBytes())))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.username").value("test15@example.com"));
+                .andExpect(jsonPath("$.username").value("test14@example.com"));
     }
 
     /*@Test
