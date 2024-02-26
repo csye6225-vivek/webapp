@@ -41,7 +41,7 @@ source "googlecompute" "centos_stream" {
   source_image_family = var.source_image_family
   ssh_username        = var.ssh_username
   image_name          = "gcp-${local.timestamp}"
-  image_family        = var.image_family
+  image_family          = var.image_family
 }
 
 build {
