@@ -1,6 +1,8 @@
 name: GCP Image Creation
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
 
@@ -57,7 +59,7 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
-
+      
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
@@ -73,19 +75,29 @@ jobs:
           service_account_key: ${{ secrets.CSYE6225CSYE }}
           project_id: csye6225csye
           export_default_credentials: true
-
+      
       - name: Install Packer
-        run: |
-          sudo apt-get update && sudo apt-get install packer
-
-      - name: Change to Packer directory and list files
-        run: |
-          
-      - name: Build GCP Image with Packer
+        run: sudo apt-get update && sudo apt-get install packer
+      
+      - name: Initialize Packer
         run: |
           cd packer
-          ls -l  # This will list files in the current directory for debugging purposes
           packer init .
+      
+      - name: Packer Format Check
+        if: github.event_name == 'pull_request'
+        run: |
+          cd packer
           packer fmt -check
+      
+      - name: Packer Validate
+        if: github.event_name == 'pull_request'
+        run: |
+          cd packer
           packer validate .
+      
+      - name: Build GCP Image with Packer
+        if: github.event_name == 'push'
+        run: |
+          cd packer
           packer build -var 'artifact_path=${{ github.workspace }}/target/cloud-app-0.0.1-SNAPSHOT.jar' -var 'project_id=csye6225csye' -var 'zone=us-east1-b' cent.pkr.hcl
