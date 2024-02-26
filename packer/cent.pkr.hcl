@@ -64,7 +64,7 @@ build {
   }
 
   provisioner "shell" {
-    script = "scrip.sh"
+    script = "script.sh"
   }
   provisioner "shell" {
     script = "mysql.sh"
