@@ -45,9 +45,9 @@ public class UserController {
 	@PostMapping("/v1/user")
 	public ResponseEntity<Map<String, Object>> createUser(@RequestBody(required = false) Map<String, String> requMap) {
 		try {
-			logger.info("This is a Post v1/user/self structured log message to check INFO");
-			logger.error("This is a Post v1/user/self structured log message to check ERROR");
-			logger.debug("This is a Post v1/user/self structured log message to check DEBUG");
+			logger.info("This is a NEW TEST Post v1/user/self structured log message to check INFO");
+			logger.error("This is a NEW TEST Post v1/user/self structured log message to check ERROR");
+			logger.debug("This is a NEW TEST Post v1/user/self structured log message to check DEBUG");
 			return userService.save(requMap);
 		} catch (Exception e) {
 			Map<String, Object> resMap = new HashMap<>();
@@ -64,9 +64,9 @@ public class UserController {
 			if (authUser == null) {
 				Map<String, Object> resMap = new HashMap<>();
 				resMap.put("msg", "Unauthorized access. Please provide valid credentials.");
-				logger.info("This is a Get v1/user/self structured log message to check INFO");
-				logger.error("This is a Gut v1/user/self structured log message to check ERROR");
-				logger.debug("This is a Gut v1/user/self structured log message to check DEBUG");
+				logger.info("This is a NEW TEST Get v1/user/self structured log message to check INFO");
+				logger.error("This is a NEW TEST Gut v1/user/self structured log message to check ERROR");
+				logger.debug("This is a NEW TEST Gut v1/user/self structured log message to check DEBUG");
 				return new ResponseEntity<>(resMap, HttpStatusCode.valueOf(401));
 			}
 			if (!authUser.isVerified()) {
@@ -91,9 +91,9 @@ public class UserController {
 			if (authUser == null) {
 				Map<String, Object> resMap = new HashMap<>();
 				resMap.put("msg", "Unauthorized access. Please provide valid credentials.");
-				logger.info("This is a Put v1/user/self structured log message to check INFO");
-				logger.error("This is a Put v1/user/self structured log message to check ERROR");
-				logger.debug("This is a Put v1/user/self structured log message to check DEBUG");
+				logger.info("This is a NEW TEST Put v1/user/self structured log message to check INFO");
+				logger.error("This is a NEW TEST Put v1/user/self structured log message to check ERROR");
+				logger.debug("This is a NEW TEST Put v1/user/self structured log message to check DEBUG");
 				return new ResponseEntity<>(resMap, HttpStatusCode.valueOf(401));
 			}
 			if (!authUser.isVerified()) {
@@ -115,9 +115,9 @@ public class UserController {
 			if (authUser == null) {
 				Map<String, Object> resMap = new HashMap<>();
 				resMap.put("msg", "Unauthorized access. Please provide valid credentials.");
-				logger.info("This is a Get v1/user/self structured log message to check INFO");
-				logger.error("This is a Gut v1/user/self structured log message to check ERROR");
-				logger.debug("This is a Gut v1/user/self structured log message to check DEBUG");
+				logger.info("This is a NEW TEST Get v1/user/self structured log message to check INFO");
+				logger.error("This is a NEW TEST Gut v1/user/self structured log message to check ERROR");
+				logger.debug("This is a NEW TEST Gut v1/user/self structured log message to check DEBUG");
 				return new ResponseEntity<>(resMap, HttpStatusCode.valueOf(401));
 			}
 
