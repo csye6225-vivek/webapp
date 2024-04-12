@@ -25,7 +25,7 @@ public class healthCheckController {
     }
 
 
-    @GetMapping("/healthz")
+    @GetMapping("/health")
     public ResponseEntity<Void> healthCheck(HttpServletRequest request) {
         // Check if there's a content-length header indicating a body in a GET request
         logger.info("This is a healthz structured log message to check INFO");
