@@ -42,7 +42,7 @@ public class UserController {
 	@Autowired
 	private VerificationInfoRepository verificationInfoRepository;
 
-	@PostMapping("/v1/user")
+	@PostMapping("/v1/use")
 	public ResponseEntity<Map<String, Object>> createUser(@RequestBody(required = false) Map<String, String> requMap) {
 		try {
 			logger.info("This is a NEW TEST Post v1/user/self structured log message to check INFO");
