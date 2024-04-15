@@ -42,7 +42,7 @@ public class UserController {
 	@Autowired
 	private VerificationInfoRepository verificationInfoRepository;
 
-	@PostMapping("/v1/use")
+	@PostMapping("/v2/user")
 	public ResponseEntity<Map<String, Object>> createUser(@RequestBody(required = false) Map<String, String> requMap) {
 		try {
 			logger.info("This is a NEW TEST Post v1/user/self structured log message to check INFO");
@@ -56,7 +56,7 @@ public class UserController {
 		}
 	}
 
-	@GetMapping("/v1/user/self")
+	@GetMapping("/v2/user/self")
 	public ResponseEntity<Map<String, Object>> getAuthenticatedUser(HttpServletRequest httpServletRequest) {
 		try {
 			// The AuthHandler is assumed to extract the authenticated user's details
@@ -84,7 +84,7 @@ public class UserController {
 	}
 
 
-	@PutMapping("/v1/user/self")
+	@PutMapping("/v2/user/self")
 	public ResponseEntity<Map<String, Object>> updateUser(@RequestBody Map<String, String> requMap, HttpServletRequest httpServletRequest) {
 		try {
 			User authUser = authHandler.getUser(httpServletRequest);
@@ -107,7 +107,7 @@ public class UserController {
 		}
 	}
 
-	@GetMapping("/v1/user/self/verify/")
+	@GetMapping("/v2/user/self/verify/")
 	public ResponseEntity<Map<String, Object>> verifyUser(HttpServletRequest httpServletRequest) {
 		try {
 			// The AuthHandler is assumed to extract the authenticated user's details
