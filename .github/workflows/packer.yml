@@ -88,7 +88,7 @@ jobs:
           --network=${{ env.NETWORK }} \
           --subnet=${{ env.SUBNET }} \
           --boot-disk-type=pd-ssd \
-          --boot-disk-size=50GB \
+          --boot-disk-size=20GB \
           --boot-disk-auto-delete \
           --tags=${{ env.TAGS }} \
           --machine-type=${{ env.MACHINE_TYPE }} \
